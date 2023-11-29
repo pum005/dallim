@@ -1,4 +1,4 @@
-![메인페이지](https://github-production-user-asset-6210df.s3.amazonaws.com/108645121/286285621-f78fee3d-3fb8-4507-9021-fee4562e0883.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231128%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231128T143012Z&X-Amz-Expires=300&X-Amz-Signature=c4cb0f8087aed3fdd949403f1ff80fd8f4c8dbb17f0b0e93e3cb70bb631c62d0&X-Amz-SignedHeaders=host&actor_id=108645121&key_id=0&repo_id=724441305)
+![메인페이지](./frontend/Dallim/src/assets/demo/main.gif)
 
 # 소개
 
