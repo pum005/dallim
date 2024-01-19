@@ -9,11 +9,11 @@ import javax.persistence.*;
 
 import com.b208.dduishu.domain.character.entity.Character;
 import lombok.Setter;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import com.b208.dduishu.domain.user.dto.request.UserDTO;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -22,6 +22,7 @@ import lombok.Getter;
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
+@Indexed
 public class User {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +33,7 @@ public class User {
     @Column(nullable = false)
     private String email;
     @Column(nullable = false, unique = true)
+    @Field
     private String nickname;
 
     @OneToMany(mappedBy = "user")
