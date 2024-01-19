@@ -20,6 +20,7 @@ import com.b208.dduishu.domain.planet.entity.Planet;
 import com.b208.dduishu.domain.planet.entity.PlanetName;
 import com.b208.dduishu.domain.planet.repository.PlanetRepository;
 import com.b208.dduishu.domain.runningRecord.service.RunningRecordService;
+import com.b208.dduishu.domain.search.service.UserNickNameSearchService;
 import com.b208.dduishu.domain.user.dto.response.*;
 import com.b208.dduishu.domain.user.entity.BaseLevel;
 import org.springframework.beans.factory.annotation.Value;
@@ -43,6 +44,7 @@ import static java.util.stream.Collectors.toSet;
 @Slf4j
 public class UserSocialService {
 
+    private final UserNickNameSearchService userNickNameSearchService;
     @Value("${jwt.secret}")
     private String secretKey;
 
@@ -150,7 +152,7 @@ public class UserSocialService {
     public List<SearchUserProfile> searchUserProfile(String q) {
         User user = getUser.getUser();
         List<User> findFollower = userRepository.getUserByFollowerUserId(user.getUserId(), FollowState.accept);
-        List<User> searchUsers = userRepository.findByNicknameContaining(q);
+        List<User> searchUsers = userNickNameSearchService.searchUserNickName(q);
 
         return searchUsers.stream()
                 .map(o -> new SearchUserProfile(o, findFollower))
